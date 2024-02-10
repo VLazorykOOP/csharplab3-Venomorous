@@ -68,6 +68,18 @@ class City : Metropolis
 
 class Program
 {
+    public static void Task2()
+    {
+        Place[] places = new Place[4];
+
+        places[0] = new Place("Nature Reserve");
+        places[1] = new Region("Mountainous Region", "Cool");
+        places[2] = new Metropolis("Metropolis A", "Temperate", 5000000);
+        places[3] = new City("City X", "Warm", 100000, "City Park");
+
+        PrintOrderedArray(places);
+    }
+
     public static void PrintOrderedArray(Place[] places)
     {
         var orderedArray = places.OrderBy(place => place.GetType().Name);
