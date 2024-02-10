@@ -55,10 +55,12 @@ class ITriangle
         get => color;
     }
 
-    public void printSides()
+    public void PrintSides()
     {
-        Console.WriteLine("Side A: " + A);
-        Console.WriteLine("Side B: " + B);
+        Console.WriteLine("Sides:");
+        Console.WriteLine("  Side A: " + A);
+        Console.WriteLine("  Side B: " + B);
+        Console.WriteLine("  Side C: " + A);
     }
 
     public int Perimeter()
@@ -81,16 +83,36 @@ class ITriangle
     {
         return a + b > a && a + b > b;
     }
+
+    public static void PrintTriangle(ITriangle triangle)
+    {
+        Console.WriteLine("-----------------------------------------------------------");
+        triangle.PrintSides();
+        Console.WriteLine("Triangle perimeter: " + triangle.Perimeter());
+        Console.WriteLine("Triangle area: " + triangle.Area());
+        Console.WriteLine("Triangle color: " + triangle.Color);
+    }
+
+    public static void PrintAllTriangles(ITriangle[] triangles)
+    {
+        foreach (var triangle in triangles)
+        {
+            PrintTriangle(triangle);
+        }
+    }
 }
 
 class Program
 {
     public static void Task1()
     {
-        ITriangle triangle = new ITriangle(3, 4, 1);
-        Console.WriteLine("Perimeter: " + triangle.Perimeter());
-        Console.WriteLine("Area: " + triangle.Area());
-        Console.WriteLine("Color: " + triangle.Color);
-        Console.WriteLine("Is triangle correct: " + triangle.IsTriangleCorrect());
+        ITriangle[] triangles = new ITriangle[]
+        {
+            new ITriangle(3, 4, 1),
+            new ITriangle(5, 7, 2),
+            new ITriangle(8, 15, 3),
+        };
+
+        ITriangle.PrintAllTriangles(triangles);
     }
 }

@@ -2,8 +2,7 @@
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Triangle");
-        Console.WriteLine("-----------------------------------------------------------");
+        Console.WriteLine("Triangles");
         Triangle.Program.Task1();
 
         Console.WriteLine("===========================================================");
